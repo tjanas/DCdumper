@@ -1,0 +1,39 @@
+20110919 (0.42a)
++FIX:Read errors apparent since 0.3a
++FIX:Writing hashes to file
+
+20110918 (0.41a)
++FIX:Suppress some strings that shouldn't be shown on fake reads
+
+20110917 (0.4a)
+More options:
+ -ff -ft : Fake reads to try and kick program out of a rut in the event of read errors (default true)
+ -r#     : Retry attempts per pass in event of read errors (min 0, max 20, default 3)
+ -sf -st : Step back. Fake reads from end to start after a pass. Perhaps gentler than jumping off a cliff (default true)
+ 
++Added retry attempts per pass in event of read errors (-r)
++Added fake reads to try and kick program out of a rut in the event of read errors (-f)
++Added step back. Fake reads from end to start, perhaps gentler than jumping off a cliff (-s)
+
+20110917 (0.3a)
++No longer use akrip32, use DeviceIO (SPTD)
++No longer use startstop.exe, use DeviceIO (Load device)
++Section hashes stored to file as successful reads are completed (better resume function)
++Log file created (mirrors console)
++Pass drive letter, not scsi id
+
+20110915 (0.2a)
++Options no longer hard-coded
+ -h      : Basic help
+ -c#     : Set cut-off sector, after which the disc will be dumped in one big lump (min 44990 (dump in 1 lump), max 549150 (impose no cut off), default 549150)
+ -dt -df : Set whether or not to delete temporary files when creating dense.bin
+ -i#     : Set number of sectors per section (min 26, max 504161, default 10289)
+ -p#     : Set number of passes (min 2, max 100, default 10)
+
+20110914 (0.1a)
+Initial release
++Dumps in 10289-sector sections
++Makes up to 10 passes
+-Needs both scsi device id (#:#:#) and drive letter passed
+-Not entirely safe (regarding passing 2 drive definitions)
+-Options hard-coded
